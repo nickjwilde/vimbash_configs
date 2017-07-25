@@ -1,6 +1,8 @@
 alias v='ls -alh'
 alias cls='clear'
 alias add='git add'
+alias addi='git add -i'
+alias addall='git add -A'
 alias clone='git clone'
 alias pull='git pull'
 alias mit='git commit -m'
@@ -12,9 +14,12 @@ alias branch='git branch'
 alias merge='git merge'
 alias fetch='git fetch'
 alias remote='git remote'
+alias rebase='git rebase'
 alias chpick='git cherry-pick'
-alias addi='git add -i'
 alias lghead='git log origin..HEAD'
 alias lgline='git log --oneline'
 alias lgshort='git log --format=short'
 alias lgmine="git log --decorate --format='%C(yellow)%H %C(cyan)%ad%C(auto)%d%n%n    %C(green italic)%an %C(cyan)(%ar) %C(reset)%s%n' --date=format:'%m-%d-%y %H:%M [%a]'"
+
+#only for here
+alias cgit='cd /c/git' 
