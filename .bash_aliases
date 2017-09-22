@@ -6,6 +6,7 @@ alias addall='git add -A'
 alias clone='git clone'
 alias pull='git pull'
 alias mit='git commit -m'
+alias emit='git commit -e'
 alias push='git push'
 alias stat='git status'
 alias stash='git stash'
@@ -15,11 +16,14 @@ alias merge='git merge'
 alias fetch='git fetch'
 alias remote='git remote'
 alias rebase='git rebase'
+alias nomerged='git branch --no-merged'
+alias stashdiff='git stash show -p'
 alias chpick='git cherry-pick'
 alias lghead='git log origin..HEAD'
 alias lgline='git log --oneline'
 alias lgshort='git log --format=short'
-alias lgmine="git log --decorate --format='%C(yellow)%H %C(cyan)%ad%C(auto)%d%n%n    %C(green italic)%an %C(cyan)(%ar) %C(reset)%s%n' --date=format:'%m-%d-%y %H:%M [%a]'"
+alias lgmine="git log --graph --decorate --format='%C(yellow)%h %C(cyan)%ad%C(auto)%d%n%n    %C(green italic)%an %C(cyan)(%ar) %C(reset)%s%n' --date=format:'%m-%d-%y %H:%M [%a]'"
 
-#only for here
 alias cgit='cd /c/git' 
+alias discardall="git status | grep modified: | awk '{print \$2}' | xargs git checkout -- "
+
