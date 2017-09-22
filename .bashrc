@@ -1,15 +1,14 @@
-#bash_aliases
+# bash_aliases
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
-
-#git global settings
+# git global settings
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM='verbose git'
 export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWUPSTREAM
 
-#ssh keys management
+# ssh keys management
 env=~/.ssh/agent.env
 
 agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
@@ -32,7 +31,7 @@ fi
 
 unset env
 
-#git completion of branches
+# git completion of branches
 if [ -f ~/.git-completion.bash ];then
     . ~/.git-completion.bash
 fi
