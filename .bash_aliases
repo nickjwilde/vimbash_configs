@@ -26,5 +26,4 @@ alias lgshort='git log --format=short'
 alias lgmine="git log --graph --decorate --format='%C(yellow)%h %C(cyan)%ad%C(auto)%d%n%n    %C(green italic)%an %C(cyan)(%ar) %C(reset)%s%n' --date=format:'%m-%d-%y %H:%M [%a]'"
 
 alias cgit='cd /c/git' 
-alias discardall="git status | grep modified: | awk '{print \$2}' | xargs git checkout -- "
-
+alias discardall='git status | grep modified: | cut -d'\'' '\'' -f 2- | awk '\''{gsub(/^ +| +$/,"")} {print "\""$0"\""}'\'' | xargs git checkout -- ' 
