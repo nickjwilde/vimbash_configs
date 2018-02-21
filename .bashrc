@@ -3,6 +3,10 @@ if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
+if [ -f ~/.secrets ]; then
+    . ~/.secrets
+fi
+
 # git global settings
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM='verbose git'
@@ -24,9 +28,9 @@ agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
 
 if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
     agent_start
-    ssh-add ~/.ssh/nwilde_jti_rsa
+    ssh-add $SECRET_KEY_PATH
 elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
-    ssh-add ~/.ssh/nwilde_jti_rsa
+    ssh-add $SECRET_KEY_PATH 
 fi
 
 unset env
