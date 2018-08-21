@@ -15,7 +15,8 @@ set showcmd
 
 syntax on
 
-imap jj <esc>
-nmap <CR> :nohls<CR>
-nmap <Space> $
-nmap <Tab> ^
+inoremap jj <esc>
+nnoremap <CR> :nohls<CR>
+nnoremap <Space> $
+nnoremap <Tab> ^
+nnoremap Y y$
