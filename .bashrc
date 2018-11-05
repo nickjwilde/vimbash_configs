@@ -26,11 +26,14 @@ agent_load_env
 # agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
 agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
 
-if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+if [ ! "$SSH_AUTH_SOCK" ] || [ "$agent_run_state" = 2 ]; then
     agent_start
 fi
+
+existing_keys=$(ssh-add -l) 
 for key in ${KEY_FILES[@]}; do
-    ssh-add $SECRET_KEY_PATH$key
+    fingerprint=$(ssh-keygen -lf "$SECRET_KEY_PATH$key" | awk '{print $2}')
+    echo "$existing_keys" | grep -q "$fingerprint" || ssh-add "$SECRET_KEY_PATH$key";
 done
 
 unset env
