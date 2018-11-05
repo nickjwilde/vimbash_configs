@@ -29,4 +29,3 @@ alias lgmine="git log --graph --decorate --format='%C(yellow)%h %C(cyan)%ad%C(au
 
 alias cgit='cd /c/git' 
 alias discardall='git status | grep modified: | cut -d'\'' '\'' -f 2- | awk '\''{gsub(/^ +| +$/,"")} {print "\""$0"\""}'\'' | xargs git checkout -- ' 
-alias vimb='vim -u NONE'

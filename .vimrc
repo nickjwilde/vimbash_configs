@@ -22,15 +22,6 @@ let maplocalleader = ";"
 
 syntax on
 
-set statusline=%F
-set statusline+=\ -\  
-set statusline+=%y
-set statusline+=%m
-set statusline+=%=
-set statusline+=[%l,%c]/%L
-set statusline+=\ %%
-set statusline+=%p
-
 if !has('gui_running')
     set t_Co=256
 endif
