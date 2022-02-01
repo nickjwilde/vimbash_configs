@@ -1,0 +1,11 @@
+set localconfig
+set smoothscroll
+set noautofocus
+
+let barposition='bottom'
+
+let mapleader = ','
+
+let configpath = '~/.cvimrc'
+
+map <Leader>d :duplicate<CR>
