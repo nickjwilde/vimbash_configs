@@ -46,3 +46,21 @@ fi
 if [ -f ~/.alias_completion.bash ];then
     . ~/.alias_completion.bash
 fi
+
+# add git prompt commands if not available with bash
+if [ -f ~/bin/git-prompt.sh ];then
+    . ~/bin/git-prompt.sh
+fi
+
+# add /home/bin folder for custom scripts
+PATH=$PATH:~/bin
+
+#git to shell
+PS1='\e[0;36m\u@\h \A\n'
+PS1="$PS1"'\e[33m'
+PS1="$PS1"'\w\e[0m |'
+PS1="$PS1"'\e[036m'
+PS1="$PS1"'`__git_ps1`'
+PS1="$PS1"'\e[0m\n\e[0m\$'
+export PS1
+export PATH
