@@ -11,6 +11,7 @@ function alias_completion {
     eval "local completions=($(complete -p | sed -Ene "/$compl_regex/s//'\3'/p"))"
     (( ${#completions[@]} == 0 )) && return 0
 
+    mkdir -p "$HOME/tmp"
     # create temporary file for wrapper functions and completions
     rm -f "$HOME/tmp/${namespace}-*.tmp" # preliminary cleanup
     local tmp_file; tmp_file="$(mktemp "$HOME/tmp/${namespace}-${RANDOM}XXX.tmp")" || return 1
