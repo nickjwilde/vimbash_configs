@@ -52,6 +52,10 @@ if [ -f ~/bin/git-prompt.sh ];then
     . ~/bin/git-prompt.sh
 fi
 
+
+source virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.pyenvs
+mkdir -p $WORKON_HOME
 # add /home/bin folder for custom scripts
 PATH=$PATH:~/bin
 
@@ -61,6 +65,6 @@ PS1="$PS1"'\e[33m'
 PS1="$PS1"'\w\e[0m |'
 PS1="$PS1"'\e[036m'
 PS1="$PS1"'`__git_ps1`'
-PS1="$PS1"'\e[0m\n\e[0m\$'
+PS1="$PS1"'\e[0m\n\$'
 export PS1
 export PATH
