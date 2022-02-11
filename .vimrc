@@ -37,7 +37,7 @@ imap <Leader>e <Plug>CapsLockEnable
 imap <Leader>d <Plug>CapsLockDisable
 
 
-nnoremap <CR> :nohls<CR>
+nnoremap <Leader><CR> :nohls<CR>
 nnoremap <Space> $
 nnoremap <Tab> ^
 nnoremap Y y$
@@ -45,6 +45,27 @@ nnoremap Y y$
 nnoremap <Leader>' `
 nnoremap <Leader>` '
 nnoremap <Leader>w <C-w>
+
+map <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+map <Leader>F <Plug>(easymotion-bd-F)
+nmap <Leader>F <Plug>(easymotion-overwin-F)
+map <Leader>t <Plug>(easymotion-bd-t)
+nmap <Leader>t <Plug>(easymotion-overwin-t)
+map <Leader>T <Plug>(easymotion-bd-T)
+nmap <Leader>T <Plug>(easymotion-overwin-T)
+map <Leader>ew <Plug>(easymotion-bd-w)
+nmap <Leader>ew <Plug>(easymotion-overwin-w)
+map <Leader>W <Plug>(easymotion-bd-W)
+nmap <Leader>W <Plug>(easymotion-overwin-W)
+map <Leader>b <Plug>(easymotion-bd-b)
+map <Leader>b <Plug>(easymotion-bd-b)
+nmap <Leader>B <Plug>(easymotion-overwin-B)
+nmap <Leader>B <Plug>(easymotion-overwin-B)
+map <Leader>e <Plug>(easymotion-bd-e)
+nmap <Leader>e <Plug>(easymotion-overwin-e)
+map <Leader>E <Plug>(easymotion-bd-E)
+nmap <Leader>E <Plug>(easymotion-overwin-E)
 
 """ TAB NAVIGATION
 nnoremap <Leader>J J
@@ -102,6 +123,7 @@ Plug 'ryanoasis/vim-devicons'
 
 let g:coc_global_extensions = [
   \ 'coc-tsserver'
+  \ 'coc-pyright'
   \ ]
 
 call plug#end()
@@ -121,5 +143,8 @@ endif
 
 
 autocmd VimEnter * NERDTree | wincmd p
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 autocmd Filetype html,xml source ~/.vim/scripts/wrapwithtag.vim

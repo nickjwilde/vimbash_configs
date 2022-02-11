@@ -9,3 +9,5 @@ let mapleader = ','
 let configpath = '~/.cvimrc'
 
 map <Leader>d :duplicate<CR>
+map <Leader>a :tabattach
+map <Leader>s :tabdetach<CR>
