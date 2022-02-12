@@ -122,8 +122,8 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'ryanoasis/vim-devicons'
 
 let g:coc_global_extensions = [
-  \ 'coc-tsserver'
-  \ 'coc-pyright'
+  \ 'coc-tsserver',
+  \ 'coc-pyright',
   \ ]
 
 call plug#end()
@@ -141,6 +141,17 @@ if &term =~ "xterm\\|rxvt"
     let &t_te.="\e[0 q"
 endif
 
+" coc config
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<Tab>" :
+    \ coc#refresh()
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 autocmd VimEnter * NERDTree | wincmd p
 
