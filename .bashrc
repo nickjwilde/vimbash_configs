@@ -52,10 +52,14 @@ if [ -f ~/bin/git-prompt.sh ];then
     . ~/bin/git-prompt.sh
 fi
 
+if [ -f ~/git-flow-completion.bash ];then
+
+    . ~/git-flow-completion.bash 
+fi
+
 
 source virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.pyenvs
-mkdir -p $WORKON_HOME
 # add /home/bin folder for custom scripts
 PATH=$PATH:~/bin
 
