@@ -1,3 +1,4 @@
+#!/bin/bash
 # bash_aliases
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
@@ -56,9 +57,25 @@ if [ -f ~/git-flow-completion.bash ];then
 
     . ~/git-flow-completion.bash 
 fi
+export GIT_HOME=$HOME/git
+# git home setup
 
 
-source virtualenvwrapper.sh
+function cgit () { cd "$GIT_HOME/$1"; }
+
+_cgit_completion () {
+    dirs=($(compgen -W "$(ls $GIT_HOME)" -- "${COMP_WORDS[1]}"))
+    COMPREPLY=("${dirs[@]}")
+}
+
+complete -F _cgit_completion cgit
+
+
+if [ -f ~/virtualenvwrapper.sh ]; then
+    source virtualenvwrapper.sh
+fi
+
+export PROJECT_HOME=$GIT_HOME
 export WORKON_HOME=$HOME/.pyenvs
 # add /home/bin folder for custom scripts
 PATH=$PATH:~/bin

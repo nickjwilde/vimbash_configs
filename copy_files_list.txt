@@ -1,9 +1,8 @@
-./.alias_completion.bash
-./.bash_aliases
-./.cvimrc
-./.git-completion.bash
-./.secrets_default
-./.vimrc
-./git-flow-completion.bash
-./bin/git-prompt.sh
-./01_bashrc
+.alias_completion.bash
+.bash_aliases
+.cvimrc
+.git-completion.bash
+.vimrc
+git-flow-completion.bash
+bin
+01_bashrc
